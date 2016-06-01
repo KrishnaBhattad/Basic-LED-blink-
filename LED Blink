@@ -1,0 +1,28 @@
+#include<p18f4520.h>
+
+#pragma config WDT=OFF
+#pragma config LVP=OFF
+#pragma config OSC=HS
+#pragma config PBADEN=OFF
+void delay(int a)
+{
+int i,j;
+for(i=0;i<100;i++)
+{
+for(j=0;j<a;j++)
+{}
+}
+}
+
+
+void main(void)
+{
+while(1)
+{
+TRISD=0;
+PORTD=0xff;
+delay(500);
+PORTD=0x00;
+delay(500);
+}
+}
